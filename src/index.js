@@ -12,12 +12,10 @@ app.listen(port, (req, res) => {
   console.log(`Servidor rodando na porta ${port}`)
 })
 
-// Rota GET Cliente
-app.get('/cliente', (req, res) => {
-  res.send("Rota GET do Cliente ativada")
-})
+// Importação da classe ControllerCliente e chamada ao método das rotas
+const ControllerCliente = require('./controllers/controller-cliente.js');
+ControllerCliente.rotas(app)
 
-// Rota GET Livro
-app.get('/livro', (req, res) => {
-  res.send("Rota GET do Cliente ativada")
-})
+// Importação da classe ControllerLivro e chamada ao método das rotas
+const ControllerLivro = require('./controllers/controller-livro.js')
+ControllerLivro.rotas(app)
